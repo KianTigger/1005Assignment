@@ -7,8 +7,6 @@
 */
 
 import java.util.*;
-// testing
-//testing again
 
 
 public abstract class Search {
