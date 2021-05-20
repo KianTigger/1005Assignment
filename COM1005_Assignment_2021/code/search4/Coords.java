@@ -1,3 +1,4 @@
+package code.search4;
 /**
  * Coords.java
  *

@@ -1,4 +1,4 @@
-
+package code.search4;
 /**
   * RunMapSearch.java
   *

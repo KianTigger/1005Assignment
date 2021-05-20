@@ -1,3 +1,4 @@
+package code.search3;
 /*
 *	State in a Ramblers search
 *	Phil Green 2013 version

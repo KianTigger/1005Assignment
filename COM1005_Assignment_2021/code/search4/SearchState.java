@@ -1,3 +1,4 @@
+package code.search4;
 /**
 *	State in a state-space search
 *	abstract class

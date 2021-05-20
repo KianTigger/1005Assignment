@@ -1,3 +1,4 @@
+package code.search4;
 /*
 *	State in a Ramblers search
 *	Phil Green 2013 version
@@ -38,14 +39,15 @@ public class RamblersState extends SearchState {
     int[][] pixels = Ramblers.getTmap();
     ArrayList<SearchState> succs = new ArrayList<SearchState>();
 
-    int tempY, tempX;
+    int tempY, tempX, estCost;
     for (int i = -1; i <= 1; i += 2) {
       tempY = coords.gety() + i;
       tempX = coords.getx();
-
+      //estCost
       if ((-1 < tempY && tempY < Ramblers.getDepth()) && (-1 < tempX && tempX < Ramblers.getWidth())) {
         succs.add((SearchState) new RamblersState(new Coords(tempY, tempX), pixels[tempY][tempX], 0));
       }
+
       tempY = coords.gety();
       tempX = coords.getx() + i;
 
