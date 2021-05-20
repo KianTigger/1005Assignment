@@ -1,4 +1,4 @@
-
+package code.search3;
 /**
 *	Node in a state-space search
 *   variable costs case
