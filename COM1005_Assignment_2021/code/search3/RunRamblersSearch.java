@@ -1,4 +1,3 @@
-package code.search3;
 /**
   * RunMapSearch.java
   *
@@ -14,8 +13,8 @@ public class RunRamblersSearch {
 
   public static void main(String[] arg) {
 
-    //TerrainMap map1 = new TerrainMap("tmc.pgm");
-    TerrainMap map1 = new TerrainMap("diablo.pgm");
+    TerrainMap map1 = new TerrainMap("tmc.pgm");
+    //TerrainMap map1 = new TerrainMap("diablo.pgm");
 
     System.out.println(map1.getDepth());
     System.out.println(map1.getWidth());
@@ -25,8 +24,8 @@ public class RunRamblersSearch {
     //RamblersSearch searcher = new RamblersSearch(map1, new Coords(100, 100));
     RamblersSearch searcher = new RamblersSearch(map1, new Coords(map1.getDepth()-1, map1.getWidth()-1));
 
-    int tempx = 15;
-    int tempy = 15;
+    int tempx = 4;
+    int tempy = 4;
     SearchState initState = (SearchState) new RamblersState(new Coords(tempy, tempx), map1.getTmap()[tempy][tempx]);
 
     // change from search1 - specify strategy

@@ -1,4 +1,3 @@
-package code.search3;
 /**
  * @(#)TerrainMap.java
  * Terrain Maps for the Rambler's problem
@@ -9,7 +8,7 @@ package code.search3;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-//import java.io.PrintWriter;
+import java.io.PrintWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;

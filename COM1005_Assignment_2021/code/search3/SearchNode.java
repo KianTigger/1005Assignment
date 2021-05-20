@@ -1,4 +1,3 @@
-package code.search3;
 /**
 *	Node in a state-space search
 *   variable costs case
@@ -28,7 +27,7 @@ public class SearchNode {
    */
 
   public SearchNode(SearchState s, int lc) {
-    state = s;
+    state = (SearchState) s;
     localCost = lc; // change from search2
   }
 

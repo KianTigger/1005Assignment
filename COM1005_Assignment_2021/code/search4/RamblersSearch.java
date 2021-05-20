@@ -1,4 +1,3 @@
-package code.search4;
 /*
 * 	MapSearch.java
 *

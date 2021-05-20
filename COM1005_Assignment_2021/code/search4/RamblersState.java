@@ -1,4 +1,3 @@
-package code.search4;
 /*
 *	State in a Ramblers search
 *	Phil Green 2013 version
@@ -75,6 +74,14 @@ public class RamblersState extends SearchState {
     //intToReturn = euclidianDistance(tar);
     
     //intToReturn = heightDifference(tar, pixels);
+
+    //intToReturn = manhattenAndEuclidianDistance(target);
+
+    //intToReturn = manhattenAndHeight(target, pixels);
+
+    //intToReturn = EuclidianAndHeight(target, pixels);
+
+    //intToReturn = manhattenAndEuclidianDistanceAndHeight(target, pixels);
     
     return intToReturn;
   }
@@ -90,6 +97,23 @@ public class RamblersState extends SearchState {
   public int heightDifference(Coords target, int[][] pixels){
     return (int) (Math.abs(this.localCost - pixels[target.gety()][target.getx()]));
   }
+
+  public int manhattenAndEuclidianDistance(Coords target){
+    return (int) (manhattenDistance(target) - euclidianDistance(target));
+  }
+
+  public int manhattenAndHeight(Coords target, int[][] pixels){
+    return (int) (manhattenDistance(target) - heightDifference(target, pixels));
+  }
+
+  public int EuclidianAndHeight(Coords target, int[][] pixels){
+    return (int) (euclidianDistance(target) - heightDifference(target, pixels));
+  }
+
+  public int manhattenAndEuclidianDistanceAndHeight(Coords target, int[][] pixels){
+    return (int) (manhattenDistance(target) + euclidianDistance(target) - heightDifference(target, pixels));
+  }
+
 
 
   // sameState

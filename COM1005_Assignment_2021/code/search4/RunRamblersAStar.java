@@ -1,4 +1,3 @@
-package code.search4;
 /**
   * RunMapSearch.java
   *
@@ -14,8 +13,8 @@ public class RunRamblersAStar {
 
   public static void main(String[] arg) {
 
-    //TerrainMap map1 = new TerrainMap("tmc.pgm");
-    TerrainMap map1 = new TerrainMap("diablo.pgm");
+    TerrainMap map1 = new TerrainMap("tmc.pgm");
+    //TerrainMap map1 = new TerrainMap("diablo.pgm");
 
     System.out.println(map1.getDepth());
     System.out.println(map1.getWidth());
