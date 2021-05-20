@@ -10,11 +10,13 @@ public class RamblersState extends SearchState {
 
   private Coords coords;
   private int localCost;
+  private int estimatedCost;
 
   // constructor
-  public RamblersState(Coords coords, int lc) {
+  public RamblersState(Coords coords, int lc, int ec) {
     this.coords = coords;
     this.localCost = lc;
+    this.estimatedCost = ec;
   }
 
   // accessor
@@ -42,13 +44,13 @@ public class RamblersState extends SearchState {
       tempX = coords.getx();
 
       if ((-1 < tempY && tempY < Ramblers.getDepth()) && (-1 < tempX && tempX < Ramblers.getWidth())) {
-        succs.add((SearchState) new RamblersState(new Coords(tempY, tempX), pixels[tempY][tempX]));
+        succs.add((SearchState) new RamblersState(new Coords(tempY, tempX), pixels[tempY][tempX], 0));
       }
       tempY = coords.gety();
       tempX = coords.getx() + i;
 
       if ((-1 < tempY && tempY < Ramblers.getDepth()) && (-1 < tempX && tempX < Ramblers.getWidth())) {
-        succs.add((SearchState) new RamblersState(new Coords(tempY, tempX), pixels[tempY][tempX]));
+        succs.add((SearchState) new RamblersState(new Coords(tempY, tempX), pixels[tempY][tempX], 0));
       }
 
     }
