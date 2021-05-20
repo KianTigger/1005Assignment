@@ -7,7 +7,7 @@ package code.search4;
 * Heidi Christensen (heidi.christensen@sheffield.ac.uk) 2021 version
 */
 
-import java.util.*;
+//import java.util.*;
 
 public class RamblersSearch extends Search {
 

@@ -14,7 +14,7 @@ public class SearchNode {
 
   private SearchState state;
   // change from search2
-  private int Cost;
+  //private int Cost;
   private int globalCost;
   private int localCost;
 
@@ -28,7 +28,7 @@ public class SearchNode {
    */
 
   public SearchNode(SearchState s, int lc) {
-    state = (SearchState) s;
+    state = s;
     localCost = lc; // change from search2
   }
 

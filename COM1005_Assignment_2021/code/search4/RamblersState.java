@@ -40,28 +40,31 @@ public class RamblersState extends SearchState {
     ArrayList<SearchState> succs = new ArrayList<SearchState>();
 
     int tempY, tempX, estCost;
+    Coords temp;
     for (int i = -1; i <= 1; i += 2) {
       tempY = coords.gety() + i;
       tempX = coords.getx();
-      estCost = getAStarHeuristic(searcher);
+      temp = new Coords(tempY, tempX);
+      estCost = getAStarHeuristic(searcher, temp);
       if ((-1 < tempY && tempY < Ramblers.getDepth()) && (-1 < tempX && tempX < Ramblers.getWidth())) {
-        succs.add((SearchState) new RamblersState(new Coords(tempY, tempX), pixels[tempY][tempX], 0));
+        succs.add((SearchState) new RamblersState(temp, pixels[tempY][tempX], estCost));
       }
 
       tempY = coords.gety();
       tempX = coords.getx() + i;
-
+      temp = new Coords(tempY, tempX);
+      estCost = getAStarHeuristic(searcher, temp);
       if ((-1 < tempY && tempY < Ramblers.getDepth()) && (-1 < tempX && tempX < Ramblers.getWidth())) {
-        succs.add((SearchState) new RamblersState(new Coords(tempY, tempX), pixels[tempY][tempX], 0));
+        succs.add((SearchState) new RamblersState(temp, pixels[tempY][tempX], estCost));
       }
 
     }
     return succs;
   }
 
-  public int getAStarHeuristic(Search searcher){
+  public int getAStarHeuristic(Search searcher, Coords tar){
     RamblersSearch msearcher = (RamblersSearch) searcher;
-    Coords tar = msearcher.getGoal(); // get target pixel
+    //Coords tar = msearcher.getGoal(); // get target pixel
     TerrainMap Ramblers = msearcher.getMap();
     int[][] pixels = Ramblers.getTmap();
 
@@ -69,10 +72,11 @@ public class RamblersState extends SearchState {
 
     intToReturn = manhattenDistance(tar);
     
-    intToReturn = euclidianDistance(tar);
+    //intToReturn = euclidianDistance(tar);
     
-    intToReturn = heightDifference(tar, pixels);
-    return 0;
+    //intToReturn = heightDifference(tar, pixels);
+    
+    return intToReturn;
   }
 
   public int manhattenDistance(Coords target){
