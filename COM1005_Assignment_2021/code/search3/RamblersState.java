@@ -10,8 +10,6 @@ public class RamblersState extends SearchState {
 
   private Coords coords;
   private int localCost;
-  private int estRemCost;
-  
 
   // constructor
   public RamblersState(Coords coords, int lc) {
@@ -38,9 +36,13 @@ public class RamblersState extends SearchState {
     int[][] pixels = Ramblers.getTmap();
     ArrayList<SearchState> succs = new ArrayList<SearchState>();
 
-    for (int i = -1; i <= 1; i+=2) {
-      for (int j = -1; j <= 1; j+=2) {
-        succs.add((SearchState) new RamblersState(new Coords(coords.gety()+i, coords.getx()+j), pixels[coords.gety()+i][coords.getx()+j]));
+    for (int i = -1; i <= 1; i += 2) {
+      for (int j = -1; j <= 1; j += 2) {
+        int tempY = coords.gety() + i;
+        int tempX = coords.getx() + j;
+        if ((-1 < tempY && tempY < Ramblers.getDepth()) && (-1 < tempX && tempX < Ramblers.getWidth())) {
+          succs.add((SearchState) new RamblersState(new Coords(tempY, tempX), pixels[tempY][tempX]));
+        }
       }
     }
     return succs;
