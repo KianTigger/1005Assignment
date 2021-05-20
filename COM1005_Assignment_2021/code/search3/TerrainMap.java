@@ -39,11 +39,6 @@ public class TerrainMap {
     return height;
   };
 
-  public int getNeighbouringCosts(int w, int d) {
-    //0:North, 1:East, 2:South, 3:West
-    return 0;
-  }
-
   private static final int MAXVAL = 255; // We'll use a constant maximum greyscale value
 
   /**
