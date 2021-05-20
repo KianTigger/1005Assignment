@@ -8,43 +8,40 @@ import java.util.*;
 
 public class RamblersState extends SearchState {
 
-  // city for this state
-  private String pixel;
+  private Coords coords;
+  private int localCost;
+  private int estRemCost;
+  
 
   // constructor
-  public RamblersState(String cname, int lc) {
-    pixel = cname;
-    localCost = lc;
+  public RamblersState(Coords coords, int lc) {
+    this.coords = coords;
+    this.localCost = lc;
   }
 
   // accessor
-  public String getPixel() {
-    return pixel;
+  public Coords getCoords() {
+    return coords;
   }
 
   // goalPredicate
   public boolean goalPredicate(Search searcher) {
     RamblersSearch msearcher = (RamblersSearch) searcher;
-    String tar = msearcher.getGoal(); // get target pixel
-    return (pixel.compareTo(tar) == 0);
+    Coords tar = msearcher.getGoal(); // get target pixel
+    return (coords.getx() == tar.getx() && coords.gety() == tar.gety());
   }
 
   // getSuccessors
   public ArrayList<SearchState> getSuccessors(Search searcher) {
     RamblersSearch msearcher = (RamblersSearch) searcher;
     TerrainMap Ramblers = msearcher.getMap();
-    ArrayList links = Ramblers.getWeights(pixel);
+    int[][] pixels = Ramblers.getTmap();
     ArrayList<SearchState> succs = new ArrayList<SearchState>();
 
-    for ( l : links) {
-      String spixel;
-      if (pixel.compareTo(l.getPixel1()) == 0) {
-        spixel = l.getPixel2();
-      } else {
-        spixel = l.getPixel1();
+    for (int i = -1; i <= 1; i+=2) {
+      for (int j = -1; j <= 1; j+=2) {
+        succs.add((SearchState) new RamblersState(new Coords(coords.gety()+i, coords.getx()+j), pixels[coords.gety()+i][coords.getx()+j]));
       }
-      ;
-      succs.add((SearchState) new RamblersState(spixel, l.getCost()));
     }
     return succs;
   }
@@ -53,12 +50,12 @@ public class RamblersState extends SearchState {
 
   public boolean sameState(SearchState s2) {
     RamblersState ms2 = (RamblersState) s2;
-    return (pixel.compareTo(ms2.getPixel()) == 0);
+    return (coords.getx() == ms2.coords.getx() && coords.gety() == ms2.coords.gety());
   }
 
   // toString
   public String toString() {
-    return ("Ramblers State: " + pixel);
+    return ("Ramblers State: " + coords);
   }
 
 }
