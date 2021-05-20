@@ -43,7 +43,7 @@ public class RamblersState extends SearchState {
     for (int i = -1; i <= 1; i += 2) {
       tempY = coords.gety() + i;
       tempX = coords.getx();
-      //estCost
+      estCost = getAStarHeuristic(searcher);
       if ((-1 < tempY && tempY < Ramblers.getDepth()) && (-1 < tempX && tempX < Ramblers.getWidth())) {
         succs.add((SearchState) new RamblersState(new Coords(tempY, tempX), pixels[tempY][tempX], 0));
       }
@@ -58,6 +58,35 @@ public class RamblersState extends SearchState {
     }
     return succs;
   }
+
+  public int getAStarHeuristic(Search searcher){
+    RamblersSearch msearcher = (RamblersSearch) searcher;
+    Coords tar = msearcher.getGoal(); // get target pixel
+    TerrainMap Ramblers = msearcher.getMap();
+    int[][] pixels = Ramblers.getTmap();
+
+    int intToReturn;
+
+    intToReturn = manhattenDistance(tar);
+    
+    intToReturn = euclidianDistance(tar);
+    
+    intToReturn = heightDifference(tar, pixels);
+    return 0;
+  }
+
+  public int manhattenDistance(Coords target){
+    return (int) (Math.abs(coords.getx() - target.getx()) + Math.abs(coords.gety() - target.gety()));
+  }
+
+  public int euclidianDistance(Coords target){
+    return (int) Math.sqrt(Math.pow(coords.getx() - target.getx(), 2) + Math.pow(coords.gety() - target.gety(), 2));
+  }
+
+  public int heightDifference(Coords target, int[][] pixels){
+    return (int) (Math.abs(this.localCost - pixels[target.gety()][target.getx()]));
+  }
+
 
   // sameState
 
