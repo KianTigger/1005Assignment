@@ -18,6 +18,7 @@ public class RunRamblersBB {
     // TerrainMap map1 = new TerrainMap("diablo.pgm");
     int depthLimit = map1.getDepth();
     int widthLimit = map1.getWidth();
+    //the following can be used for batch testing.
     int[][] testingArray = { { 12, 1, 4, 8 }, { 3, 0, 1, 13 }, { 13, 4, 3, 11 }, { 7, 2, 1, 4 }, { 14, 11, 12, 8 },
         { 11, 9, 13, 7 }, { 10, 0, 1, 0 }, { 7, 2, 15, 2 }, { 1, 11, 3, 0 }, { 3, 14, 11, 0 }, { 8, 1, 6, 13 },
         { 9, 9, 1, 13 }, { 10, 9, 5, 1 }, { 14, 13, 13, 14 }, { 4, 4, 4, 14 }, { 2, 11, 11, 9 }, { 1, 2, 8, 1 },

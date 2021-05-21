@@ -50,6 +50,7 @@ public class RamblersState extends SearchState {
       tempY = coords.gety() + i;
       tempX = coords.getx();
 
+      //checks if the coordinates are in range of the terrain, if so the searchstate becomes a successor.
       if ((-1 < tempY && tempY < Ramblers.getDepth()) && (-1 < tempX && tempX < Ramblers.getWidth())) {
         temp = new Coords(tempY, tempX);
         estCost = getAStarHeuristic(searcher, temp);
@@ -59,6 +60,7 @@ public class RamblersState extends SearchState {
       tempY = coords.gety();
       tempX = coords.getx() + i;
 
+      //checks if the coordinates are in range of the terrain, if so the searchstate becomes a successor.
       if ((-1 < tempY && tempY < Ramblers.getDepth()) && (-1 < tempX && tempX < Ramblers.getWidth())) {
         temp = new Coords(tempY, tempX);
         estCost = getAStarHeuristic(searcher, temp);
@@ -69,6 +71,8 @@ public class RamblersState extends SearchState {
     return succs;
   }
 
+
+  //Allows for the change of multiple heuristics by uncommenting and commenting code for testing.
   public int getAStarHeuristic(Search searcher, Coords current) {
     RamblersSearch msearcher = (RamblersSearch) searcher;
     // Coords tar = msearcher.getGoal(); // get target pixel
@@ -78,22 +82,17 @@ public class RamblersState extends SearchState {
     int intToReturn;
 
     // intToReturn = manhattanDistance(current, goal);
-
     // intToReturn = euclideanDistance(current, goal);
-
     // intToReturn = heightDifference(current, goal, pixels);
-
     // intToReturn = manhattanAndEuclidianDistance(current, goal);
-
     // intToReturn = manhattanAndHeight(current, goal, pixels);
-
     // intToReturn = EuclidianAndHeight(current, goal, pixels);
-
     intToReturn = manhattanAndEuclidianDistanceAndHeight(current, goal, pixels);
 
     return intToReturn;
   }
 
+  //The following functions return the applicable heuristics.
   public int manhattanDistance(Coords target, Coords goal) {
     return (int) (Math.abs(goal.getx() - target.getx()) + Math.abs(goal.gety() - target.gety()));
   }
@@ -124,7 +123,6 @@ public class RamblersState extends SearchState {
   }
 
   // sameState
-
   public boolean sameState(SearchState s2) {
     RamblersState ms2 = (RamblersState) s2;
     return (coords.getx() == ms2.coords.getx() && coords.gety() == ms2.coords.gety());

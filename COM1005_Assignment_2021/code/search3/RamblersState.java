@@ -37,16 +37,19 @@ public class RamblersState extends SearchState {
     ArrayList<SearchState> succs = new ArrayList<SearchState>();
 
     int tempY, tempX;
+    //This checks each of North, South, East and West, being the following ((0,1), (1,0), (0,-1), (-1,0)). 
     for (int i = -1; i <= 1; i += 2) {
       tempY = coords.gety() + i;
       tempX = coords.getx();
-
+      
+      //checks if the coordinates are in range of the terrain, if so the searchstate becomes a successor.
       if ((-1 < tempY && tempY < Ramblers.getDepth()) && (-1 < tempX && tempX < Ramblers.getWidth())) {
         succs.add((SearchState) new RamblersState(new Coords(tempY, tempX), pixels[tempY][tempX]));
       }
       tempY = coords.gety();
       tempX = coords.getx() + i;
 
+      //checks if the coordinates are in range of the terrain, if so the searchstate becomes a successor.
       if ((-1 < tempY && tempY < Ramblers.getDepth()) && (-1 < tempX && tempX < Ramblers.getWidth())) {
         succs.add((SearchState) new RamblersState(new Coords(tempY, tempX), pixels[tempY][tempX]));
       }
@@ -56,7 +59,6 @@ public class RamblersState extends SearchState {
   }
 
   // sameState
-
   public boolean sameState(SearchState s2) {
     RamblersState ms2 = (RamblersState) s2;
     return (coords.getx() == ms2.coords.getx() && coords.gety() == ms2.coords.gety());

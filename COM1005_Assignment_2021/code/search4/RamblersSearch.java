@@ -13,6 +13,7 @@ public class RamblersSearch extends Search {
   private TerrainMap map; // map we're searching
   private Coords goal; // goal Coords
 
+  //applicable getters
   public TerrainMap getMap() {
     return map;
   }
