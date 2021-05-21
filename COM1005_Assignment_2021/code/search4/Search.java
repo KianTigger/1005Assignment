@@ -16,6 +16,7 @@ public abstract class Search {
   protected ArrayList<SearchNode> open; // open - list of SearchNodes
   protected ArrayList<SearchNode> closed; // closed - .......
   protected ArrayList<SearchNode> successorNodes; // used in expand & vetSuccessors
+  
 
   /**
    * run a search
@@ -41,18 +42,18 @@ public abstract class Search {
     while (!open.isEmpty()) {
 
       // print contents of open
-      System.out.println("-------------------------");
-      System.out.println("iteration no " + numIteration);
-      System.out.println("open is");
+      //System.out.println("-------------------------");
+      //System.out.println("iteration no " + numIteration);
+      //System.out.println("open is");
       for (SearchNode nn : open) {
         String nodestr = nn.toString();
-        System.out.println(nodestr);
+        //System.out.println(nodestr);
       }
 
       selectNode(strat); // change from search1 -selectNode selects next node given strategy,
 
       // makes it currentNode & removes it from open
-      System.out.println("Current node: " + currentNode.toString());
+      //System.out.println("Current node: " + currentNode.toString());
 
       if (currentNode.goalPredicate(this))
         return reportSuccess(); // success
@@ -261,7 +262,8 @@ public abstract class Search {
 
     System.out.println("Efficiency " + ((float) plen / (closed.size() + 1)));
     System.out.println("Solution Path\n");
-    return buf.toString();
+    //return buf.toString();
+    return "";
   }
 
   // reportSuccess for runSearcE

@@ -1,0 +1,76 @@
+ASTAR diablo
+
+Euclidian paths:
+Count: 50 out of: 50
+averageEfficiency: 0.009609629311598837
+
+
+Manhatten:
+averageEfficiency: 0.009678206682129174
+Count: 50 out of: 50
+
+Height difference:
+Count: 50 out of: 50
+averageEfficiency: 0.009389167847111822
+
+
+manhattenAndEuclidianDistance:
+Count: 50 out of: 50
+averageEfficiency: 0.009488459215499461
+
+
+manhattenAndHeight:
+Count: 50 out of: 50
+averageEfficiency: 0.00970803946722299
+
+
+EuclidianAndHeight:
+Count: 50 out of: 50
+averageEfficiency: 0.009657037849538029
+
+
+manhattanAndEuclidianDistanceAndHeight
+Count: 50 out of: 50
+averageEfficiency: 0.009902341049164534
+
+
+Branch and bound
+
+averageEfficiency: 0.009439853988587855
+
+
+
+
+
+ASTAR tmc
+
+Euclidian paths:
+Count: 50 out of: 50
+averageEfficiency: 0.11797712177038193
+
+Manhatten:
+Count: 50 out of: 50
+averageEfficiency: 0.11828323274850845
+
+Height difference:
+Count: 50 out of: 50
+averageEfficiency: 0.11230187490582466
+
+manhattenAndEuclidianDistance:
+Count: 50 out of: 50
+averageEfficiency: 0.11559484384953976
+
+manhattenAndHeight:
+averageEfficiency: 0.11669777639210224
+
+EuclidianAndHeight:
+averageEfficiency: 0.11610586948692798
+
+manhattanAndEuclidianDistanceAndHeight
+averageEfficiency: 0.11779781490564346
+
+Branch and bound
+averageEfficiency: 0.11043969877064228
+
+
+
