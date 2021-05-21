@@ -10,12 +10,12 @@
 
 import java.util.*;
 
-public class RunRamblersAStar {
+public class RunRamblersAstart {
 
   public static void main(String[] arg) {
 
-    TerrainMap map1 = new TerrainMap("tmc.pgm");
-    //TerrainMap map1 = new TerrainMap("diablo.pgm");
+    //TerrainMap map1 = new TerrainMap("tmc.pgm");
+    TerrainMap map1 = new TerrainMap("diablo.pgm");
     System.out.println(map1.getDepth());
     System.out.println(map1.getWidth());
     int[][] tmctestingArray = { { 12, 1, 4, 8 }, { 3, 0, 1, 13 }, { 13, 4, 3, 11 }, { 7, 2, 1, 4 }, { 14, 11, 12, 8 },
@@ -39,6 +39,8 @@ public class RunRamblersAStar {
         { 214, 78, 33, 206 }, { 140, 235, 195, 241 }, { 144, 138, 74, 149 }, { 54, 239, 133, 234 },
         { 129, 10, 178, 91 }, { 101, 184, 139, 155 }, { 63, 72, 38, 45 } };
 
+        //the following can be used to extend the batch testing to 100 random coordinates.
+
         // , { 67, 80, 215, 147 }, { 178, 79, 8, 131 },
         // { 26, 118, 197, 201 }, { 116, 238, 146, 193 }, { 153, 241, 233, 99 }, { 168, 57, 190, 167 },
         // { 25, 172, 126, 55 }, { 37, 114, 36, 24 }, { 39, 56, 121, 241 }, { 231, 40, 40, 201 }, { 83, 64, 213, 122 },
@@ -50,20 +52,14 @@ public class RunRamblersAStar {
         // { 193, 66, 87, 1 }, { 91, 90, 51, 7 }, { 185, 64, 1, 80 }, { 213, 54, 229, 145 }, { 78, 96, 17, 123 },
         // { 20, 147, 143, 91 }, { 29, 160, 212, 69 }, { 65, 126, 59, 234 }, { 15, 79, 84, 207 }, { 110, 59, 31, 42 },
         // { 245, 75, 108, 16 }, { 118, 108, 0, 157 }, { 244, 223, 6, 188 }, { 78, 135, 84, 113 }, { 20, 33, 99, 190 }
-    // Average Efficiency: 0.00424548564478755 manhattenDistance diablo
 
-    boolean testing = true;
+    boolean testing = false;
     if (testing == false) {
-      System.out.println(map1.getDepth());
-      System.out.println(map1.getWidth());
-      // System.out.println(map1.toString());
-      // System.out.println(map1.getLinks("Start"));
-
       // RamblersSearch searcher = new RamblersSearch(map1, new Coords(100, 100));
       RamblersSearch searcher = new RamblersSearch(map1, new Coords(map1.getDepth() - 1, map1.getWidth() - 1));
 
-      int tempx = 240;
-      int tempy = 248;
+      int tempx = 2;
+      int tempy = 40;
       SearchState initState = (SearchState) new RamblersState(new Coords(tempy, tempx), map1.getTmap()[tempy][tempx],
           0);
 
@@ -82,9 +78,9 @@ public class RunRamblersAStar {
       int count = 0;
       double totalEfficiency = 0;
       double averageEfficiency = 0; // used for efficiency purposes
-      for (int[] tempArray : tmctestingArray) {
+      for (int[] tempArray : diablotestingArray) {
         count += 1;
-        System.out.println("Count: " + count + " out of: " + tmctestingArray.length);
+        System.out.println("Count: " + count + " out of: " + diablotestingArray.length);
         tempystart = tempArray[0];
         tempxstart = tempArray[1];
         tempyend = tempArray[2];
@@ -96,19 +92,13 @@ public class RunRamblersAStar {
         //totalEfficiency += searcher.runSearchE(initState, "branchAndBound");
         averageEfficiency = totalEfficiency / count;
         System.out.println("averageEfficiency: " + averageEfficiency);
-        // String res_bb = searcher.runSearchE(initState, "aStar");
-        // System.out.println(res_bb);
       }
       System.out.println();
       System.out.println();
       System.out.println();
       System.out.println();
       System.out.println();
-      System.out.println();
-      System.out.println();
-      System.out.println();
-      System.out.println();
-      System.out.println();
+
 
 
     }

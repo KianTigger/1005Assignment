@@ -262,8 +262,7 @@ public abstract class Search {
 
     System.out.println("Efficiency " + ((float) plen / (closed.size() + 1)));
     System.out.println("Solution Path\n");
-    //return buf.toString();
-    return "";
+    return buf.toString();
   }
 
   // reportSuccess for runSearcE

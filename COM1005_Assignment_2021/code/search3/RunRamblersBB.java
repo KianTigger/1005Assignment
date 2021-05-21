@@ -31,14 +31,16 @@ public class RunRamblersBB {
     System.out.println(map1.getWidth());
     // System.out.println(map1.toString());
     // System.out.println(map1.getLinks("Start"));
-    boolean testing = true;
+
+    //Change testing to true to run 50 tests.
+    boolean testing = false;
     if (testing == false) {
-      RamblersSearch searcher = new RamblersSearch(map1, new Coords(10, 10));
+      RamblersSearch searcher = new RamblersSearch(map1, new Coords(13, 9));
       // RamblersSearch searcher = new RamblersSearch(map1, new
       // Coords(map1.getDepth(), map1.getWidth()));
 
-      int tempx = 9;
-      int tempy = 9;
+      int tempx = 1;
+      int tempy = 2;
       SearchState initState = (SearchState) new RamblersState(new Coords(tempy, tempx), map1.getTmap()[tempy][tempx]);
 
       // change from search1 - specify strategy
@@ -64,17 +66,9 @@ public class RunRamblersBB {
         RamblersSearch searcher = new RamblersSearch(map1, new Coords(tempystart, tempxstart));
         SearchState initState = (SearchState) new RamblersState(new Coords(tempyend, tempxend),
             map1.getTmap()[tempyend][tempxend]);
-        totalEfficiency += searcher.runSearchE(initState, "aStar");
-        averageEfficiency = totalEfficiency / count;
-        System.out.println("averageEfficiency: " + averageEfficiency);
-        // String res_bb = searcher.runSearchE(initState, "aStar");
-        // System.out.println(res_bb);
+        //String res_bb = searcher.runSearch(initState, "aStar");
+        //System.out.println(res_bb);
       }
-      System.out.println();
-      System.out.println();
-      System.out.println();
-      System.out.println();
-      System.out.println();
       System.out.println();
       System.out.println();
       System.out.println();
